@@ -86,7 +86,7 @@ public class GetBuildInfoCommand extends SystemCommand {
             }
         }
         try {
-            return Optional.of(new SemanticVersion("3.8.9));
+            return Optional.of(new SemanticVersion("3.8.9"));
         } catch (ParseException e) {
             return Optional.empty();
         }
