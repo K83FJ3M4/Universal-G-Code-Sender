@@ -62,7 +62,7 @@ public class GetBuildInfoCommand extends SystemCommand {
                 return Optional.of(versionMatcher.group("variant"));
             }
         }
-        return Optional.empty();
+        return Optional.of("FluidNC");
     }
 
     public SemanticVersion getVersion() {
@@ -85,7 +85,11 @@ public class GetBuildInfoCommand extends SystemCommand {
                 }
             }
         }
-        return Optional.empty();
+        try {
+            return Optional.of(new SemanticVersion("3.8.9));
+        } catch (ParseException e) {
+            return Optional.empty();
+        }
     }
 
     private Optional<SemanticVersion> parseFluidNCVs() {
